@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"basics/util"
+	"fmt"
+	"io"
+	"os"
+)
 
 func main() {
 	fmt.Println("Basics of Arrays/Slices")
@@ -52,5 +57,121 @@ func main() {
 	fmt.Println(s12[6:])  // returns emoji
 	fmt.Println(s12[4:7]) // it won't return emoji bcz emoji = 4 bytes
 	fmt.Println(len(s12)) // 10 bytes
+
+	eval := []int{2, 4, 6, 8, 10}
+	for i, v := range eval {
+		fmt.Println(i, v)
+	}
+
+	m := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+
+	for i := 1; i < 3; i++ {
+		fmt.Println("Loop", i)
+		for k, v := range m {
+			fmt.Println(k, v)
+		}
+	}
+
+	// -------------- Iterating over string (for-range) --------------------------------
+	samples := []string{"Apple", "Banana", "Cake"}
+	for _, sample := range samples {
+		for i, r := range sample {
+			fmt.Println(i, r, string(r))
+		}
+		fmt.Println()
+	}
+
+loop:
+	for i := 1; i <= 10; i++ {
+		fmt.Println("This is: ", i)
+		switch i {
+		case 6:
+			break loop
+		}
+	}
+
+	//-------------------- Functions -------------------------
+	fmt.Println("Add function imported here")
+	fmt.Println(add(5, 6))
+
+	// 1.
+	results, remainder, err := divAndRemainder(4, 2)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(results, remainder, err)
+	// 2.
+	results2, remainder2, err2 := divAndRemainder(4, 0)
+	if err2 != nil {
+		fmt.Println(err2)
+		// return
+	}
+	fmt.Println(results2, remainder2, err2)
+
+	// ----------------- Subtract function (imported through util dir) -------------------
+	res := util.Subtract(10, 4)
+	fmt.Println("sub of 10-4: ", res)
+
+	res2 := util.SubtractWithOptions(util.SubtractOptions{
+		A: 10,
+		B: 5,
+	})
+	fmt.Println("This is sub with options", res2)
+
+	res3 := util.SubtractWithOptions(util.SubtractOptions{
+		A: 23,
+		// B is optional
+	})
+	fmt.Println(res3)
+
+	// ------------------------------------------ File Handling ---------------------------------------
+	// Creat + Write (file)
+	file, err := os.Create("file1.txt")
+	if err != nil {
+		fmt.Println("error while creating file", err)
+		return
+	}
+	// 1. way to write to file
+	data := []byte("This is content of the file1 thats overwritten")
+	_, err = file.Write(data)
+	if err != nil {
+		fmt.Println("Error while writing to file", err)
+		return
+	}
+	// 2. way to write to file
+	fullName := "Monkey D Luffy"
+	level := 19
+	_, err = fmt.Fprintf(file, "Name: %s, Level: %d\n", fullName, level)
+	if err != nil {
+		fmt.Println("Error while writing file: ", err)
+		return
+	}
+	fmt.Println("File created and written successfully")
+	file.Close()
+
+	// Read file
+	file, err = os.Open("file1.txt")
+	if err != nil {
+		fmt.Println("Error while opening file: ", err)
+		return
+	}
+	defer file.Close()
+	buffer := make([]byte, 1024)
+	for {
+		n, err := file.Read(buffer)
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Println("Error while reading file: ", err)
+			return
+		}
+		fmt.Print(string(buffer[:n]))
+	}
 
 }
