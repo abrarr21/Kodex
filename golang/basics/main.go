@@ -182,7 +182,7 @@ loop:
 	fmt.Println("Area of Circle: ", calculateArea(circle))
 
 	mysteryBox := interface{}("This is a string")
-	describeInterface(10.2)
+	describeInterface(mysteryBox)
 
 	// Type Assertion -> It checks whether the underlying value(mysteryBox) is int or not. Basically, checking the type
 	retrievedInt, ok := mysteryBox.(int)
