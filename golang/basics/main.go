@@ -174,4 +174,25 @@ loop:
 		fmt.Print(string(buffer[:n]))
 	}
 
+	fmt.Println("-------------------- Interfaces -----------------------------------")
+	rect := Rectangle{width: 5, height: 10}
+	circle := Circle{radius: 2}
+
+	fmt.Println("Area of Rectangle: ", calculateArea(rect))
+	fmt.Println("Area of Circle: ", calculateArea(circle))
+
+	mysteryBox := interface{}("This is a string")
+	describeInterface(10.2)
+
+	// Type Assertion -> It checks whether the underlying value(mysteryBox) is int or not. Basically, checking the type
+	retrievedInt, ok := mysteryBox.(int)
+	if ok {
+		fmt.Println("retrieved Int: ", retrievedInt)
+	} else {
+		fmt.Println("value is not int")
+	}
+
+	// embedding interface (geometry)
+	areaAndPerimeter(rect)
+
 }
