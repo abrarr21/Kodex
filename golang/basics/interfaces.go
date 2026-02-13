@@ -5,28 +5,28 @@ import (
 	"math"
 )
 
-type Shape interface {
+type Shapes interface {
 	Area() float64 // Here, How this method will work is not declared
 }
 
-type Rectangle struct {
+type Rectangles struct {
 	width  float64
 	height float64
 }
 
-func (r Rectangle) Area() float64 { // Implemented Shape interface by using (Area()) method
+func (r Rectangles) Area() float64 { // Implemented Shape interface by using (Area()) method
 	return r.width * r.height // what Implementation(How Area() will work) this interface will perform is defined here
 }
 
-type Circle struct {
+type Circles struct {
 	radius float64
 }
 
-func (c Circle) Area() float64 {
+func (c Circles) Area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
-func calculateArea(s Shape) float64 {
+func calculateArea(s Shapes) float64 {
 	return s.Area()
 }
 
@@ -41,11 +41,11 @@ type Measure interface {
 }
 
 type Geometry interface {
-	Shape
-	Measure // shape, Measure interface are embedded here. Geometry interface now has the function/methods/definition of Shape and Measure
+	Shapes
+	Measure // shapes, Measure interface are embedded here. Geometry interface now has the function/methods/definition of Shape and Measure
 }
 
-func (r Rectangle) perimeter() float64 {
+func (r Rectangles) perimeter() float64 {
 	return 2 * (r.height + r.width)
 }
 

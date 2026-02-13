@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func main() {
+func main1() {
 	fmt.Println("Basics of Arrays/Slices")
 
 	num := 1_000_000
@@ -175,8 +175,8 @@ loop:
 	}
 
 	fmt.Println("-------------------- Interfaces -----------------------------------")
-	rect := Rectangle{width: 5, height: 10}
-	circle := Circle{radius: 2}
+	rect := Rectangles{width: 5, height: 10}
+	circle := Circles{radius: 2}
 
 	fmt.Println("Area of Rectangle: ", calculateArea(rect))
 	fmt.Println("Area of Circle: ", calculateArea(circle))
