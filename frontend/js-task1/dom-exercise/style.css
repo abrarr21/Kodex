@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    padding: 20px 250px;
+}
+
+p {
+    font-size: 40px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 15px;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#box3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#box4 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin-bottom: 35px;
+    /* animation: rotateLeft 0.5s; */
+}
+
+@keyframes rotateLeft {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes rotateRight {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+#input {
+    width: 700px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#traffic {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.light {
+    width: 250px;
+    height: 220px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: grey;
+}
