@@ -483,22 +483,41 @@ main {
 #footer2 {
     height: 230px;
     width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
     /* background-color: blue; */
 }
 #footer3 {
     height: 230px;
     width: 250px;
     /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+}
+#footer3 a {
+    text-decoration: none;
 }
 #footer4 {
     height: 230px;
     width: 250px;
     /* background-color: coral; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
 }
 #footer5 {
     height: 230px;
     width: 250px;
     /* background-color: teal; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
 }
 
 #copyright {
