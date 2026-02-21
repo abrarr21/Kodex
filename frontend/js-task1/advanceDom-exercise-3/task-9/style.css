@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: flex-start;
+    padding-top: 40px;
+    align-items: center;
+}
+
+button {
+    padding: 20px 55px;
+    font-size: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#cardContainer {
+    width: 28%;
+    height: 600px;
+    /* background-color: maroon; */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 8;
+}
+
+#form {
+    width: 75%;
+    height: 300px;
+    background-color: ligtblue;
+    /* visibility: hidden; */
+}
+
+.inputfield {
+    width: 90%;
+    padding: 20px 5px;
+    margin: 25px 13px;
+    border-radius: 15px;
+}
