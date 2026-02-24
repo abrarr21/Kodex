@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Music Player</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="music-container">
+            <div class="image-container">
+                <img src="./assets/img/arpit.jpeg" alt="" />
+                <div class="music-content">
+                    <h3>Song Name</h3>
+                    <input
+                        type="range"
+                        class="progress"
+                        value="0"
+                        min="0"
+                        step="1"
+                    />
+                    <div class="player-icons">
+                        <div class="backward icon-btn">
+                            <i class="ri-rewind-fill"></i>
+                        </div>
+                        <div class="skip-backward icon-btn">
+                            <i class="ri-replay-10-fill"></i>
+                        </div>
+                        <div class="play icon-btn">
+                            <i class="ri-play-fill"></i>
+                        </div>
+
+                        <div class="skip-forward icon-btn">
+                            <i class="ri-forward-10-fill"></i>
+                        </div>
+                        <div class="forward icon-btn">
+                            <i class="ri-speed-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

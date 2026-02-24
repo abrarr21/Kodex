@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    max-height: 100vh;
+    font-size: 1rem;
+    padding-inline: 20rem;
+    background-color: black;
+}
+
+main {
+    margin-top: 12rem;
+    background-color: lightslategray;
+}
+
+#container {
+    height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr 3fr;
+}
+
+#title {
+    grid-column-start: 1;
+    grid-column-end: 11;
+    font-size: 3rem;
+    text-align: center;
+    margin-block: auto;
+}
+
+.key {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 2rem;
+}
+
+.key.active {
+    background-color: lightgrey;
+    scale: 0.98;
+}

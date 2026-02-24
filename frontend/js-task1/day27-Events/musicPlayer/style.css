@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url(./assets/img/desktop-bg.jpeg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#music-container {
+    width: 30vw;
+    height: 72vh;
+    background-color: rgba(14, 13, 11, 0.94);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+#music-container:hover {
+    background-color: rgb(14, 13, 11);
+}
+
+.image-container {
+    margin-top: 1rem;
+    width: 90%;
+    height: 500px;
+    background-color: teal;
+    border-radius: 50px;
+}
+
+.image-container img {
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.music-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+h3 {
+    font-size: 2.3rem;
+}
+.progress {
+    width: 80%;
+    cursor: pointer;
+}
+.player-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn {
+    cursor: pointer;
+}
+.player-icons i {
+    font-size: 2.2rem;
+}
+
+.backward.disabled i {
+    color: lightgrey;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.forward.disabled i {
+    color: lightgrey;
+    opacity: 0.5;
+    pointer-events: none;
+}
