@@ -88,13 +88,17 @@ function updateControls() {
     }
 }
 
+//load meta data of ( audio.src = "song.mp3" ) such as duration, file size etc.
 audio.addEventListener("loadedmetadata", function () {
     progress.max = Math.floor(audio.duration);
 });
 
+// slider move with time-duration
 audio.addEventListener("timeupdate", function () {
     progress.value = Math.floor(audio.currentTime);
 });
+
+//slide the slider functionality
 progress.addEventListener("input", function () {
     audio.currentTime = progress.value;
 });
@@ -104,4 +108,21 @@ skipBack.addEventListener("click", function () {
 });
 skipForward.addEventListener("click", function () {
     audio.currentTime += 10;
+});
+
+// play next song if available in the arr, else stop
+audio.addEventListener("ended", function () {
+    play.innerHTML = `<i class="ri-play-fill"></i>`;
+    setTimeout(() => {
+        currentIndex++;
+        if (currentIndex > arr.length - 1) return;
+
+        audio.src = arr[currentIndex].song;
+        image.src = arr[currentIndex].img;
+        title.textContent = arr[currentIndex].songName;
+        audio.play();
+        play.innerHTML = `<i class="ri-pause-large-line"></i>`;
+
+        updateControls();
+    }, 1000);
 });
