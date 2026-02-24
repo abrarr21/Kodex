@@ -190,7 +190,7 @@ nav {
     position: absolute;
     top: 24%;
     right: 10%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 .float-box1 p {
     font-size: var(--fs-md);
@@ -207,7 +207,7 @@ nav {
     position: absolute;
     top: 76%;
     right: 55%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .fb-box1 p {
@@ -274,7 +274,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 .header {
     display: flex;
@@ -303,6 +303,7 @@ nav {
     padding-block: var(--space-4);
     padding-inline: var(--space-4);
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0, 0, 0, 0.6);
 }
 .below-logo i {
     font-size: var(--fs-lg);
@@ -491,9 +492,12 @@ nav {
 /* Mobile View*/
 @media (max-width: 767px) {
     /*------ nav ------- */
+    nav {
+        height: 80px;
+        padding-inline: var(--space-1);
+    }
     .nav-logo-container {
         padding-right: var(--space-1);
-        /* background-color: cyan; */
     }
     .nav-links {
         display: none;
@@ -507,7 +511,7 @@ nav {
 
     /* ---------------- hero -------------- */
     #hero {
-        padding-inline: var(--space-8);
+        padding-inline: var(--space-3);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -523,35 +527,32 @@ nav {
     .hero-right-box {
         width: 100%;
         height: 600px;
-        margin-top: var(--space-6);
+        margin-top: var(--space-2);
     }
 
     .hero-left-box h1 {
-        font-size: 2.9rem;
-        line-height: 1;
-        margin-top: var(--space-3);
-        margin-bottom: var(--space-4);
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-top: var(--space-1);
+        margin-bottom: var(--space-3);
     }
     .hero-left-box p {
-        font-size: var(--fs-md);
-        margin: auto;
+        width: 100%;
+        font-size: var(--fs-base);
     }
     .hero-left-btn button {
-        padding-block: 1rem;
-        padding-inline: 1.4rem;
-        margin-top: 2.2rem;
-        border-radius: 10px;
-        cursor: pointer;
-        border: none;
+        padding-block: var(--space-3);
+        padding-inline: 1.2rem;
+        margin-top: 2rem;
     }
     .hl-btn {
-        font-size: var(--fs-sm);
+        font-size: var(--fs-lg);
         font-weight: 500;
     }
 
     .float-box1 {
-        top: 14%;
-        right: 11%;
+        top: -1%;
+        right: -10%;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     .float-box1 p {
@@ -581,11 +582,14 @@ nav {
     .srv-left-box {
         width: 100%;
         height: 500px;
-        padding-inline: 6rem;
+        padding-inline: 1rem;
     }
     .creditCard {
-        height: 28vh;
+        height: 23vh;
+        padding-block: var(--space-3);
+        padding-inline: var(--space-3);
     }
+
     .header {
         display: flex;
         justify-content: space-between;
@@ -624,53 +628,58 @@ nav {
         /* background-color: salmon; */
     }
     .srv-right-box h2 {
-        font-size: var(--fs-2xl);
-        padding-top: var(--space-6);
+        font-size: var(--fs-xl);
+        padding-top: var(--space-8);
         text-align: center;
     }
 
     .srv-right-box p {
-        width: 85%;
+        font-size: var(--fs-base);
+        width: 83%;
         margin: auto;
         text-align: center;
-        padding: 1.4rem 0 2.7rem 0;
+        padding: 1.2rem 0 2.2rem 0;
     }
     .srv-right-txt {
-        font-size: var(--fs-xl);
+        font-size: var(--fs-lg);
         padding-block: var(--space-1);
+        font-weight: 600;
     }
     .srv-right-btn {
         text-align: center;
     }
 
     /* feature section */
-    #feature {
-        min-height: 140vh;
-    }
 
     #feature h3 {
         font-size: 2.9rem;
-        padding: 2rem 0 3.3rem 0;
+        padding: 3.2rem 0 3.3rem 0;
     }
 
     .feature-cards {
+        padding-inline: var(--space-3);
+        /* background-color: cyan; */
+        padding-bottom: 9rem;
         display: flex;
         flex-direction: column;
-        gap: 6vw;
+        gap: 3vw;
     }
 
     .card1 h2 {
-        font-size: var(--fs-xl);
+        font-size: var(--fs-lg);
         width: 85%;
     }
+    .card p {
+        font-size: var(--fs-base);
+    }
     .icons {
-        padding: 0.8rem;
+        padding: 0.6rem;
     }
 
     /* contact section */
     #contact {
-        min-height: 60vh;
-        padding-top: 13rem;
+        /* min-height: 60vh; */
+        padding-top: 7rem;
         position: relative;
     }
     .contact-infos {
@@ -685,23 +694,23 @@ nav {
         gap: 1vw;
     }
     .cont-card {
-        padding: 1rem;
-        top: -12%;
-        left: 8%;
+        padding: 0.9rem;
+        top: -8%;
+        left: 6%;
     }
     .cont-card h1 {
-        font-size: var(--fs-xl);
-    }
-    .cont-card p {
-        padding-block: var(--space-8);
         font-size: var(--fs-md);
     }
+    .cont-card p {
+        padding-block: var(--space-5);
+        font-size: var(--fs-sm);
+    }
     .cont-btn button {
-        padding: 0.8rem;
+        padding: 0.5rem;
     }
     .info2 {
         gap: 0.8rem;
-        height: 160px;
+        height: 150px;
     }
     .info1-logo {
         justify-content: center;
@@ -709,7 +718,7 @@ nav {
 }
 
 /* Tablet View */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .nav-logo-container {
         padding-right: var(--space-2);
     }
@@ -780,7 +789,7 @@ nav {
         padding-block: var(--space-3);
         padding-inline: var(--space-4);
         top: 80%;
-        right: 55%;
+        right: 48%;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     .hero-brand-logo {
@@ -795,9 +804,11 @@ nav {
     }
     .srv-left-box {
         width: 100%;
+        height: 620px;
+        padding-inline: 6rem;
     }
     .creditCard {
-        height: 35vh;
+        height: 28vh;
     }
     .header {
         display: flex;
@@ -808,10 +819,6 @@ nav {
         font-size: var(--fs-xl);
     }
 
-    .srv-right-box {
-        width: 100%;
-    }
-
     .below-cc p {
         font-size: var(--fs-lg);
         padding-top: var(--space-7);
@@ -820,6 +827,7 @@ nav {
     }
 
     .creditCard-logo {
+        /* background-color: cyan; */
         display: flex;
         gap: 2vw;
         align-items: center;
@@ -837,7 +845,8 @@ nav {
 
     .srv-right-box {
         width: 100%;
-        height: 500px;
+        height: 550px;
+        padding-block: var(--space-5);
         /* background-color: salmon; */
     }
     .srv-right-box h2 {
@@ -858,23 +867,15 @@ nav {
         padding-block: var(--space-1);
     }
     .srv-right-box button {
-        margin-top: var(--space-5);
-        padding: 1rem;
-        color: white;
-        background-color: var(--accent-color);
-        border-radius: 10px;
-        font-size: var(--fs-md);
-        font-weight: 500;
-        cursor: pointer;
+        margin-top: var(--space-7);
+        padding: 1.3rem;
+        font-weight: 600;
     }
     .srv-right-btn {
         text-align: center;
     }
 
     /* feature section */
-    #feature {
-        min-height: 130vh;
-    }
 
     #feature h3 {
         font-size: 3.3rem;
@@ -882,7 +883,8 @@ nav {
     }
 
     .feature-cards {
-        padding-inline: 9.5rem;
+        padding-inline: 4.5rem;
+        padding-bottom: 15rem;
         display: flex;
         flex-direction: column;
         gap: 4vw;
@@ -898,28 +900,39 @@ nav {
 
     /* contact section */
     #contact {
-        min-height: 57vh;
-        padding-top: 12rem;
+        /* min-height: 57vh; */
+        padding-top: 8rem;
     }
     .cont-card {
-        padding: 1rem;
-        top: -28%;
+        padding-block: var(--space-5);
+        top: -14%;
         left: 9%;
     }
     .cont-card h1 {
-        font-size: var(--fs-xl);
+        font-size: var(--fs-lg);
     }
     .cont-card p {
-        padding-block: var(--space-8);
-        font-size: var(--fs-md);
+        padding-block: var(--space-5);
+        font-size: var(--fs-base);
     }
     .cont-btn button {
         padding: 0.8rem;
     }
+
+    .contact-infos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        align-items: center;
+        justify-items: center;
+    }
 }
 
 /* 720p laptop */
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1280px) {
     .nav-logo-container {
         padding-right: var(--space-1);
     }
@@ -988,16 +1001,15 @@ nav {
     }
 
     .float-box1 {
-        top: 30%;
-        right: 7%;
+        top: 13%;
+        right: -10%;
     }
 
     .float-box2 {
         padding-block: var(--space-3);
         padding-inline: var(--space-4);
         top: 75%;
-        right: 25%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        right: 35%;
     }
 
     .hero-brand-logo {
@@ -1007,19 +1019,19 @@ nav {
 
     /* services section */
     #services {
-        min-height: 60vh;
-        padding-block: var(--space-4);
+        min-height: 45vh;
+        padding-block: var(--space-5);
     }
 
     .srv-left-box {
         height: 480px;
         padding-block: var(--space-7);
-        padding-inline: 4rem;
+        padding-inline: 3.2rem;
     }
     .creditCard {
-        height: 32vh;
+        height: 21vh;
         padding-block: var(--space-4);
-        padding-inline: var(--space-3);
+        padding-inline: var(--space-5);
     }
 
     .srv-right-box {
@@ -1028,48 +1040,75 @@ nav {
     }
 
     .srv-right-box h2 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
     }
 
     .srv-right-box p {
-        font-size: var(--fs-md);
+        font-size: var(--fs-base);
         font-weight: 500;
-        padding: 1.4rem 0 3rem 0;
+        padding: 1.4rem 0 2rem 0;
     }
     .srv-right-txt {
-        font-size: var(--fs-xl);
-        padding-block: var(--space-1);
+        font-size: var(--fs-lg);
+        padding-block: var(--space-2);
     }
     .srv-right-box button {
-        margin-top: var(--space-5);
-        padding: 1rem;
-        color: white;
-        background-color: var(--accent-color);
-        border-radius: 10px;
-        font-size: var(--fs-md);
-        font-weight: 500;
-        cursor: pointer;
+        padding: 1.2rem;
+        font-size: var(--fs-base);
+        font-weight: 600;
     }
 
     /* feature section */
     #feature {
-        min-height: 80vh;
+        min-height: 50vh;
+    }
+    #feature h3 {
+        text-align: center;
+        font-size: 2.9rem;
+        padding: 2rem 0 4rem 0;
+    }
+    .card {
+        padding-block: var(--space-3);
+        padding-inline: var(--space-3);
+    }
+    .feature-cards {
+        padding-inline: var(--space-5);
+        display: flex;
+        gap: 3vw;
+        padding-bottom: 12rem;
+    }
+    .card1 h2 {
+        font-size: var(--fs-lg);
     }
 
     /* contact section */
     #contact {
-        padding-top: 15rem;
+        min-height: 30vh;
+        padding-top: 8rem;
     }
     .cont-card {
-        padding: 1.5rem;
-        top: -23%;
+        padding: 1rem;
+        top: -20%;
         left: 10%;
     }
+    .cont-card h1 {
+        font-size: var(--fs-xl);
+    }
     .cont-card p {
-        padding-block: var(--space-8);
-        font-size: var(--fs-lg);
+        padding-block: var(--space-5);
+        font-size: var(--fs-md);
     }
     .cont-btn button {
         font-size: var(--fs-md);
+        padding: 0.8rem;
+    }
+    .f11-logos {
+        padding: 0.4rem;
+    }
+    .f11-logos i {
+        font-size: var(--fs-md);
+    }
+    .info1 {
+        padding: 2.5rem 0 1.5rem 2rem;
     }
 }
