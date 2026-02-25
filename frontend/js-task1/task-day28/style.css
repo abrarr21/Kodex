@@ -130,18 +130,66 @@ section {
     color: white;
 }
 
-#page-2 {
-    padding: 0;
-    background-color: teal;
-}
-#page-3 {
-    background-color: cyan;
-}
-
 @media (max-width: 700px) {
+    #page-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
     .cards {
         height: 35vh;
-        width: 30vw;
-        background-color: red;
+        width: 74vw;
+        background-color: lightgrey;
+        gap: 0.4rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img {
+        width: 70%;
+        height: 50%;
+        background-color: maroon;
+    }
+
+    .img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .txt {
+        text-align: center;
+    }
+    .cards h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .cards h5 {
+        font-size: 1.2rem;
+        margin: 0.2rem 0 0.4rem 0;
+    }
+    .cards button {
+        padding: 0.5rem 0.8rem;
+    }
+
+    #nav-btn {
+        display: none;
+    }
+
+    #nav-links {
+        display: flex;
+        gap: 1.2rem;
+    }
+
+    #nav-links h3 {
+        font-size: 1rem;
+    }
+
+    #nav-logo {
+        width: 50px;
+        height: 50px;
     }
 }
