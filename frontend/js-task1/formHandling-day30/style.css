@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    padding-inline: 2rem;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+    transition: transform 0.2s ease;
+}
+
+nav h1 {
+    font-size: 2.3rem;
+}
+
+.prod-btn button {
+    padding: 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+
+#products {
+    padding-top: 8rem;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+}
+
+.prod-cards {
+    background-color: lightgrey;
+    padding-block: 1rem;
+    width: 22vw;
+    height: 60vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+#prod-img {
+    width: 84%;
+    height: 44%;
+    margin-bottom: 1rem;
+    background-color: maroon;
+    border-radius: 20px;
+    position: relative;
+}
+#prod-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+#stock-badge {
+    position: absolute;
+    top: 7%;
+    right: 9%;
+    padding: 0.6rem 0.9rem;
+    background-color: lightgreen;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.prod-cards h2 {
+    font-size: 2rem;
+}
+.prod-cards h3 {
+    font-size: 1.1rem;
+    text-align: center;
+}
+.prod-cards h4 {
+    font-size: 1.2rem;
+}
+.catgry > span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.cards-btn button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.cards-btn button:first-child {
+    background-color: skyblue;
+    color: black;
+    margin-right: 20px;
+}
+.cards-btn button:nth-child(2) {
+    background-color: maroon;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    nav {
+        margin-bottom: 0.8rem;
+        height: 75px;
+        width: 100%;
+        justify-content: space-between;
+        padding-inline: 1.5rem;
+    }
+    nav h1 {
+        font-size: 1.6rem;
+    }
+    .prod-btn button {
+        padding: 0.7rem 0.8rem;
+    }
+
+    #products {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .prod-cards {
+        width: 80vw;
+        padding-block: 2rem;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 0.75rem;
+        gap: 0.5rem;
+    }
+    #prod-img {
+        height: 23vh;
+        width: 74vw;
+        border-radius: 20px;
+        position: relative;
+    }
+    #prod-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    #stock-badge {
+        padding: 9px 15px;
+        background-color: teal;
+        position: absolute;
+        top: 10%;
+        right: 6%;
+        font-weight: 600;
+        color: white;
+        border-radius: 14px;
+    }
+    .cards-btn {
+        display: flex;
+        gap: 1.4rem;
+    }
+    .cards-btn button {
+        padding: 0.8rem 1.2rem;
+        border-radius: 20px;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .cards-btn button:first-child {
+        background-color: skyblue;
+        color: black;
+    }
+    .cards-btn button:nth-child(2) {
+        background-color: maroon;
+        color: white;
+    }
+    .prod-cards h2 {
+        font-size: 2rem;
+    }
+    .prod-cards h3 {
+        font-size: 1.2rem;
+    }
+    .catgry > span {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}
+
+/* ================= MODAL STYLES ================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    background: white;
+    width: 400px;
+    padding: 1.5rem;
+    border-radius: 20px;
+    animation: scaleUp 0.3s ease;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.modal form input {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+.modal form select {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.form-actions {
+    margin-top: 1rem;
+}
+
+.form-actions button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 14px;
+    border: none;
+    background: black;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
