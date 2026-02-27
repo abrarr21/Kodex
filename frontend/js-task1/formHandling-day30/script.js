@@ -1,4 +1,4 @@
-const products = [
+let products = [
     {
         name: "Wireless Mouse",
         price: 799,
@@ -83,14 +83,25 @@ const products = [
     },
 ];
 
-// calculate inStock by using quantity
-products.forEach((p) => {
-    p.inStock = p.quantity > 0;
-});
+// Load from localStorage if Availabe, use hardcoded otherwise
+const saved = localStorage.getItem("products");
+if (saved) {
+    products = JSON.parse(saved);
+} else {
+    // calculate inStock by using quantity
+    products.forEach((p) => {
+        p.inStock = p.quantity > 0;
+    });
+}
+
+let editingIndex = -1;
 
 var cardContainer = document.querySelector("#products");
 
 function generateProducts() {
+    // Save to localStorage on every render
+    localStorage.setItem("products", JSON.stringify(products));
+
     var sum = "";
     products.forEach(function (e, i) {
         sum += ` <div class="prod-cards">
@@ -114,14 +125,13 @@ function generateProducts() {
                     <h4>Quantity: <span>${e.quantity}</span></h4>
                     <h4>Price: <span>$${e.price}</span></h4>
                     <div class="cards-btn">
-                        <button class=${i}>Edit</button>
-                        <button id=${i}>Remove</button>
+                        <button class="edit-btn" data-index="${i}">Edit</button>
+                        <button class="remove-btn" data-index="${i}">Remove</button>
                     </div>
                 </div>
                 `;
-
-        cardContainer.innerHTML = sum;
     });
+    cardContainer.innerHTML = sum;
 }
 
 generateProducts();
@@ -132,21 +142,29 @@ const openBtn = document.querySelector(".prod-btn button");
 const closeBtn = document.getElementById("closeModal");
 
 openBtn.addEventListener("click", () => {
+    editingIndex = -1; // new product addition
+    form.reset();
     modalOverlay.classList.add("active");
 });
 
 closeBtn.addEventListener("click", () => {
+    form.reset();
+    editingIndex = -1;
     modalOverlay.classList.remove("active");
 });
 
 modalOverlay.addEventListener("click", (e) => {
     if (e.target === modalOverlay) {
+        form.reset();
+        editingIndex = -1;
         modalOverlay.classList.remove("active");
     }
 });
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
+        form.reset();
+        editingIndex = -1;
         modalOverlay.classList.remove("active");
     }
 });
@@ -167,8 +185,14 @@ form.addEventListener("submit", function (x) {
         inStock: Number(form.elements[3].value) > 0,
     };
 
+    if (editingIndex >= 0) {
+        products[editingIndex] = newProduct; //update existing
+        editingIndex = -1;
+    } else {
+        products.push(newProduct); //add new
+    }
+
     console.log(newProduct);
-    products.push(newProduct);
     form.reset();
     generateProducts();
     modalOverlay.classList.remove("active");
@@ -188,14 +212,16 @@ var cards = document.querySelectorAll(".prod-cards");
 // });
 //
 cardContainer.addEventListener("click", function (el) {
-    if (el.target.innerHTML === "Remove") {
-        const index = Number(el.target.id);
+    if (el.target.classList.contains("remove-btn")) {
+        const index = Number(el.target.dataset.index);
         products.splice(index, 1);
         generateProducts();
     }
-    if (el.target.innerHTML === "Edit") {
-        const index = Number(el.target.className);
+    if (el.target.classList.contains("edit-btn")) {
+        const index = Number(el.target.dataset.index);
         console.log(index);
+        editingIndex = index;
+
         const elDetails = {
             name: products[index].name,
             description: products[index].description,
@@ -218,17 +244,17 @@ cardContainer.addEventListener("click", function (el) {
 
         modalOverlay.classList.add("active");
 
-        closeBtn.addEventListener("click", () => {
-            form.reset();
-            modalOverlay.classList.remove("active");
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                form.reset();
-                modalOverlay.classList.remove("active");
-            }
-        });
+        // closeBtn.addEventListener("click", () => {
+        //     form.reset();
+        //     modalOverlay.classList.remove("active");
+        // });
+        //
+        // document.addEventListener("keydown", (e) => {
+        //     if (e.key === "Escape") {
+        //         form.reset();
+        //         modalOverlay.classList.remove("active");
+        //     }
+        // });
     }
 });
 
