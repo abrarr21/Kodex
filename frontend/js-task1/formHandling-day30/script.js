@@ -81,6 +81,102 @@ let products = [
             "https://www.zorin.co.in/cdn/shop/files/AloeKing_Liftstyle_e19a363b-98fc-4c4f-9716-e59a1be79a29.jpg?v=1708957280",
         inStock: true,
     },
+
+    {
+        name: "55-inch Smart TV",
+        price: 45999,
+        quantity: 10,
+        category: "Electronics",
+        supplier: "Sony",
+        description: "4K Ultra HD Smart LED TV with Android OS",
+        inStock: true,
+        srcImage:
+            "https://rukminim2.flixcart.com/image/480/640/kq6yefk0/television/e/p/w/l50m5-5ain-mi-original-imag4969ybwxqwza.jpeg?q=90",
+    },
+
+    {
+        name: "Tablet 10.1",
+        price: 18999,
+        quantity: 20,
+        category: "Electronics",
+        supplier: "Lenovo",
+        description: "10.1-inch tablet with 4GB RAM and 64GB storage",
+        inStock: true,
+        srcImage:
+            "https://images.macrumors.com/t/lLsAD4CY7gCnTqz5HhPeZe6LF0g=/1600x/article-new/2013/09/ipad-mini-7-colors.jpg",
+    },
+
+    {
+        name: "Wireless Earbuds",
+        price: 1999,
+        quantity: 50,
+        category: "Electronics",
+        supplier: "boAt",
+        description: "True wireless earbuds with charging case",
+        inStock: true,
+        srcImage:
+            "https://hips.hearstapps.com/hmg-prod/images/wireless-earbuds-001-6792869accae0.jpg?crop=0.583xw:0.776xh;0.194xw,0.179xh&resize=1200:*",
+    },
+
+    {
+        name: "Soundbar System",
+        price: 7999,
+        quantity: 12,
+        category: "Electronics",
+        supplier: "Philips",
+        description: "2.1 channel soundbar with subwoofer",
+        inStock: true,
+        srcImage:
+            "https://impexstore.com/cdn/shop/files/impex-soundbar-speaker-MUSIKBARM1012-img-1.jpg?v=1707472858&width=1780",
+    },
+
+    {
+        name: "Gaming Monitor 24-inch",
+        price: 13999,
+        quantity: 14,
+        category: "Electronics",
+        supplier: "Acer",
+        description: "24-inch Full HD gaming monitor with 144Hz refresh rate",
+        inStock: true,
+        srcImage:
+            "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/aw-series/aw3225qf/pdp/monitor-alienware-aw3225qf-hero.psd?fmt=jpg&wid=756&hei=525",
+    },
+
+    {
+        name: "Smart Watch Series 5",
+        price: 8999,
+        quantity: 22,
+        category: "Electronics",
+        supplier: "Noise",
+        description: "Fitness smartwatch with heart rate monitor",
+        inStock: true,
+        srcImage:
+            "https://www.apple.com/assets-www/en_IN/watch1/og/watch_og_c64ec6c67.png",
+    },
+
+    {
+        name: "Home Theater System",
+        price: 15999,
+        quantity: 6,
+        category: "Electronics",
+        supplier: "LG",
+        description: "5.1 channel home theater speaker system",
+        inStock: true,
+        srcImage:
+            "https://truvison.com/wp-content/uploads/2020/08/TV-5055BT.jpg",
+    },
+
+    {
+        name: "DSLR Camera 24MP",
+        price: 54999,
+        quantity: 5,
+        category: "Electronics",
+        supplier: "Canon",
+        description: "24MP DSLR camera with 18-55mm lens kit",
+        inStock: true,
+        srcImage:
+            "https://tiimg.tistatic.com/fp/2/006/482/nikon-d850-dslr-camera-072.jpg",
+    },
 ];
 
 // Load from localStorage if Availabe, use hardcoded otherwise
@@ -126,7 +222,8 @@ function generateProducts() {
                     <h4>Price: <span>$${e.price}</span></h4>
                     <div class="cards-btn">
                         <button class="edit-btn" data-index="${i}">Edit</button>
-                        <button class="remove-btn" data-index="${i}">Remove</button>
+                        <button class="remove-btn" data-index="${i}"><i class="ri-delete-bin-5-line"></i></button>
+                        <button class="add-btn" data-index="${i}"><i class="ri-shopping-bag-line"></i></button>
                     </div>
                 </div>
                 `;
@@ -192,7 +289,7 @@ form.addEventListener("submit", function (x) {
         products.push(newProduct); //add new
     }
 
-    console.log(newProduct);
+    // console.log(newProduct);
     form.reset();
     generateProducts();
     modalOverlay.classList.remove("active");
@@ -212,14 +309,21 @@ var cards = document.querySelectorAll(".prod-cards");
 // });
 //
 cardContainer.addEventListener("click", function (el) {
-    if (el.target.classList.contains("remove-btn")) {
-        const index = Number(el.target.dataset.index);
+    // if (el.target.classList.contains("remove-btn")) {
+    //     const index = Number(el.target.dataset.index);
+    //     products.splice(index, 1);
+    //     generateProducts();
+    // }
+    const btn = el.target.closest(".remove-btn");
+    if (btn) {
+        const index = Number(btn.dataset.index);
         products.splice(index, 1);
         generateProducts();
     }
+
     if (el.target.classList.contains("edit-btn")) {
         const index = Number(el.target.dataset.index);
-        console.log(index);
+        // console.log(index);
         editingIndex = index;
 
         const elDetails = {
@@ -231,7 +335,7 @@ cardContainer.addEventListener("click", function (el) {
             supplier: products[index].supplier,
             srcImage: products[index].srcImage,
         };
-        console.log(elDetails);
+        // console.log(elDetails);
         console.log(el.target.className);
 
         form.elements[0].value = elDetails.name;
@@ -256,6 +360,35 @@ cardContainer.addEventListener("click", function (el) {
         //     }
         // });
     }
+
+    const cartIcon = el.target.closest(".add-btn");
+    if (cartIcon) {
+        const idx = Number(cartIcon.dataset.index);
+        if (isNaN(idx)) {
+            return;
+        }
+
+        let clickedCard = products.find(function (_, i) {
+            return i == idx;
+        });
+
+        // check if product already exist in cartsData
+        const newProd = clickedCard;
+        const exist = cartsData.some(
+            (p) => JSON.stringify(p) === JSON.stringify(newProd),
+        );
+        console.log(exist);
+
+        if (!exist) {
+            cartsData.push(clickedCard);
+            renderCartUI();
+            console.log(cartsData);
+        } else {
+            alert("Already in the cart");
+        }
+
+        console.log(clickedCard);
+    }
 });
 
 // sticky and scroll event
@@ -268,3 +401,66 @@ window.addEventListener("wheel", function (dt) {
         nav.style.transform = `translateY(0%)`;
     }
 });
+
+let cartBtn = document.querySelector(".cart-btn");
+let cartScreen = document.querySelector(".cart-screen");
+let cartOpen = false;
+let cartsData = [];
+
+// console.log(cartBtn);
+
+cartBtn.addEventListener("click", function () {
+    if (!cartOpen) {
+        cartScreen.style.display = "flex";
+        cartBtn.innerHTML = `<i class="ri-home-2-line"></i>`;
+        cartOpen = true;
+    } else {
+        cartScreen.style.display = "none";
+        cartBtn.innerHTML = `<i class="ri-shopping-cart-2-line"></i>`;
+        cartOpen = false;
+    }
+});
+
+function renderCartUI() {
+    let cartsUI = "";
+    cartsData.forEach(function (e, i) {
+        cartsUI += `
+                <div class="prod-cards">
+                    <div id="prod-img">
+                        <img
+                            src="${e.srcImage}"
+                            alt=""
+                        />
+                        <span id="stock-badge">${e.inStock ? "Availabe" : "Out of Stock"}</span>
+                    </div>
+                    <h2>${e.name}</h2>
+                    <h3>${e.description}</h3>
+                    <h4 class="catgry">
+                        Category:
+                        <span>${e.category}</span>
+                    </h4>
+                    <h4 class="catgry">
+                        Supplier:
+                        <span>${e.supplier}</span>
+                    </h4>
+                    <h4>Quantity: <span>${e.quantity}</span></h4>
+                    <h4>Price: <span>$${e.price}</span></h4>
+                    <div class="cards-btn">
+                        <button onClick="deleteFromCart(${i})" class="remove-btn" data-index="${i}"><i class="ri-delete-bin-5-line"></i></button>
+                    </div>
+                </div>
+
+`;
+    });
+    cartScreen.innerHTML = cartsUI;
+}
+
+function deleteFromCart(id) {
+    let result = cartsData.filter(function (e, idx) {
+        return idx !== id;
+    });
+
+    cartsData = result;
+    renderCartUI();
+    // console.log(result);
+}

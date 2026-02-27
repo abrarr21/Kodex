@@ -3,6 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
         <title>Inventory Management</title>
         <link href="style.css" rel="stylesheet" />
     </head>
@@ -11,7 +15,12 @@
             <nav>
                 <h1>MarketPlace</h1>
                 <div class="prod-btn">
-                    <button>Add Products</button>
+                    <button><i class="ri-add-line"></i> Add</button>
+                    <div class="nav-btns">
+                        <button class="cart-btn">
+                            <i class="ri-shopping-cart-2-line"></i>
+                        </button>
+                    </div>
                 </div>
             </nav>
             <section id="products">
@@ -58,7 +67,12 @@
                     </form>
                 </div>
             </div>
+
+            <!-- Modal Overlay for cart screen -->
+            <div class="cart-screen">
+                <h1>No Item</h1>
+            </div>
         </main>
-        <script type="module" src="script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

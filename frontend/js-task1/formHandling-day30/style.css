@@ -12,6 +12,7 @@ body {
 
 main {
     padding-inline: 2rem;
+    background-color: #eaeaea;
 }
 
 nav {
@@ -33,10 +34,16 @@ nav h1 {
     font-size: 2.3rem;
 }
 
+.prod-btn {
+    display: flex;
+    gap: 1.5rem;
+}
+
 .prod-btn button {
-    padding: 1rem;
+    padding: 1rem 1.4rem;
     border-radius: 20px;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     border: none;
     cursor: pointer;
     background-color: #000;
@@ -56,7 +63,8 @@ nav h1 {
     background-color: lightgrey;
     padding-block: 1rem;
     width: 22vw;
-    height: 60vh;
+    /* height: 60vh; */
+    height: fit-content;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -65,7 +73,7 @@ nav h1 {
 }
 #prod-img {
     width: 84%;
-    height: 44%;
+    height: 270px;
     margin-bottom: 1rem;
     background-color: maroon;
     border-radius: 20px;
@@ -101,6 +109,13 @@ nav h1 {
     font-size: 1rem;
     font-weight: 500;
 }
+.cards-btn {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
 .cards-btn button {
     padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
@@ -112,11 +127,26 @@ nav h1 {
 .cards-btn button:first-child {
     background-color: skyblue;
     color: black;
-    margin-right: 20px;
 }
 .cards-btn button:nth-child(2) {
     background-color: maroon;
     color: white;
+}
+
+/* modal for cart screen */
+.cart-screen {
+    /* padding: 40px; */
+    padding: 6.5rem 40px 40px 40px;
+    min-height: 200%;
+    overflow-y: auto;
+    width: 100%;
+    background-color: #838383;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 700px) {
@@ -204,6 +234,12 @@ nav h1 {
     .catgry > span {
         font-size: 1rem;
         font-weight: 400;
+    }
+
+    /* modal for cart screen */
+    .cart-screen {
+        min-height: 200vh;
+        gap: 20px;
     }
 }
 
