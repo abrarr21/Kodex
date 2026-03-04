@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --main-gradient: linear-gradient(135deg, #1de495, #32d5de);
+    --bg-card: #ffffff;
+    --primary: #32d5de;
+    --dark: #333;
+    --light-gray: #f3f3f3;
+}
+
+/* Background */
+main {
+    min-height: 100vh;
+    background: var(--main-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 1.5rem;
+}
+
+/* Card Container */
+#bmiContainer {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: var(--bg-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+#bmiContainer:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+#bmiContainer h1 {
+    font-size: 1.8rem;
+    color: var(--dark);
+}
+
+/* Form Layout */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Image Card */
+.gCard {
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #e6fafa;
+}
+
+.gCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Radio Buttons */
+.gender-radio {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.gender-radio input[type="radio"] {
+    display: none;
+}
+
+.gender-radio label {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.gender-radio label:hover {
+    background: rgba(50, 213, 222, 0.1);
+}
+
+.gender-radio input[type="radio"]:checked + label {
+    background: var(--primary);
+    color: white;
+}
+
+/* Inputs */
+.bmi-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input[type="number"],
+form input[type="text"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: var(--light-gray);
+    outline: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+form input[type="number"]:focus,
+form input[type="text"]:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(50, 213, 222, 0.2);
+}
+
+.warning-space {
+    color: maroon;
+    font-weight: 600;
+}
+
+#btnContainer {
+    text-align: center;
+}
+/* Button */
+button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #27b9c2;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    main {
+        flex-direction: column;
+    }
+    #bmiContainer {
+        padding: 1.5rem;
+    }
+
+    .gender-radio {
+        flex-direction: column;
+    }
+
+    .gender-radio label {
+        width: 100%;
+    }
+
+    #resultCard h2 {
+        font-size: 1.3rem;
+        white-space: nowrap;
+    }
+}
+
+#resultCard {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: var(--bg-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+#resultCard h4 {
+    font-size: 1.4rem;
+    margin-top: 1.4rem;
+    border-bottom: 1px solid grey;
+}
+
+#resetBtn {
+    background-color: var(--dark);
+}

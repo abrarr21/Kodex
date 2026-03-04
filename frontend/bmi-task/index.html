@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>BMI</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <main>
+            <div id="bmiContainer">
+                <h1>BMI Calculator</h1>
+                <form>
+                    <div class="gCard">
+                        <img src="./assets/gender-profile-icon.png" alt="" />
+                    </div>
+                    <div class="bmi-inputs">
+                        <div class="gender-radio">
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="male"
+                                id="male"
+                                checked
+                            />
+                            <label for="male">Male</label>
+
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="female"
+                                id="female"
+                            />
+                            <label for="female">Female</label>
+                        </div>
+
+                        <input type="text" id="name" placeholder="Enter Name" />
+
+                        <input
+                            type="number"
+                            id="height"
+                            placeholder="Height (cm)"
+                        />
+                        <input
+                            type="number"
+                            id="weight"
+                            placeholder="Weight (kg)"
+                        />
+                        <div class="warning-space"></div>
+
+                        <div id="btnContainer">
+                            <button type="reset">Reset</button>
+                            <button type="submit">Calculate BMI</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="resultCard">
+                <h1>BMI Results</h1>
+                <h1>-- N/A</h1>
+                <h2>You are <span class="res">--</span></h2>
+                <h4>History</h4>
+                <div id="historyList"></div>
+                <button id="resetBtn">Clear History</button>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
