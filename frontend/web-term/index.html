@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Web-Term</title>
+        <link href="style.css" rel="stylesheet" />
+        <!-- marked.js: converts markdown text → HTML in the browser -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    </head>
+    <body>
+        <div id="terminal">
+            <div id="output"></div>
+            <div class="input-line">
+                <span class="prompt">$&nbsp;</span>
+                <div class="input-wrapper">
+                    <input
+                        id="command-input"
+                        autocomplete="off"
+                        spellcheck="false"
+                        placeholder="Type a command.."
+                    />
+                    <span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+        <!-- ─── MARKDOWN EDITOR OVERLAY ─── -->
+        <div id="md-editor" class="md-hidden">
+            <!-- Top status bar (like vim's) -->
+            <div id="md-statusbar">
+                <span id="md-filename">untitled.md</span>
+                <span id="md-mode" class="md-mode-insert">-- INSERT --</span>
+                <span id="md-wordcount">0 words</span>
+                <span class="md-hint"
+                    >Esc → back to terminal &nbsp;|&nbsp; :w → save
+                    &nbsp;|&nbsp; :q! → quit</span
+                >
+            </div>
+
+            <!-- Split pane: editor | preview -->
+            <div id="md-panes">
+                <div id="md-editor-pane">
+                    <div class="md-pane-label">EDITOR</div>
+                    <textarea
+                        id="md-textarea"
+                        spellcheck="false"
+                        placeholder="Start writing markdown..."
+                    ></textarea>
+                </div>
+                <div id="md-divider"></div>
+                <div id="md-preview-pane">
+                    <div class="md-pane-label">PREVIEW</div>
+                    <div id="md-preview"></div>
+                </div>
+            </div>
+
+            <!-- Bottom vim-style command line -->
+            <div id="md-cmdline">
+                <span id="md-cmdline-text"></span>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
