@@ -8,6 +8,9 @@ const Register = ({
     };
     return (
         <div className="w-full max-w-md mx-auto p-5 bg-blue-50 rounded-lg">
+            <h1 className="text-4xl font-semibold text-center mb-4">
+                Create Account
+            </h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-900 mb-1">
@@ -15,8 +18,8 @@ const Register = ({
                     </label>
                     <input
                         type="text"
-                        placeholder="Enter your name"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="John Wick"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div className="mb-4">
@@ -26,7 +29,7 @@ const Register = ({
                     <input
                         type="email"
                         placeholder="you@example.com"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div className="mb-6">
@@ -36,12 +39,12 @@ const Register = ({
                     <input
                         type="password"
                         placeholder="••••••••"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition"
+                    className="w-full bg-blue-600 text-white py-3 rounded-lg text-md font-semibold hover:bg-blue-700 transition"
                 >
                     Register
                 </button>
