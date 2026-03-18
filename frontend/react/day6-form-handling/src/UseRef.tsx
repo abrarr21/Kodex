@@ -1,40 +1,22 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 type Data = {
-    name: string;
-    email: string;
-    password: string;
-    mobile: string;
+    name?: HTMLInputElement | null;
+    password?: HTMLInputElement | null;
+    email?: HTMLInputElement | null;
+    mobile?: HTMLInputElement | null;
 };
 
-function OptimizedWay() {
-    console.log("App re-rendering");
-    const [formValues, setFormValues] = useState<Data>({
-        name: "",
-        email: "",
-        password: "",
-        mobile: "",
-    });
+function UseRef() {
+    console.log("app rendering");
 
-    let [arr, setArr] = useState<Data[]>([]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
-    };
-
+    let inpRef = useRef<Data>({});
     const handleSubmit = (e: React.SubmitEvent) => {
         e.preventDefault();
-        console.log(formValues);
-
-        setArr([...arr, formValues]);
-        console.log("arr -> ", arr);
-        setFormValues({
-            name: "",
-            email: "",
-            password: "",
-            mobile: "",
-        });
+        console.log(inpRef.current.name?.value);
+        console.log(inpRef.current.email?.value);
+        console.log(inpRef.current.password?.value);
+        console.log(inpRef.current.mobile?.value);
     };
 
     return (
@@ -52,9 +34,10 @@ function OptimizedWay() {
                             Name
                         </label>
                         <input
-                            value={formValues.name}
                             name="name"
-                            onChange={handleChange}
+                            ref={(e) => {
+                                inpRef.current.name = e;
+                            }}
                             type="text"
                             placeholder="John Wick"
                             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -68,9 +51,10 @@ function OptimizedWay() {
                             Email
                         </label>
                         <input
-                            value={formValues.email}
                             name="email"
-                            onChange={handleChange}
+                            ref={(e) => {
+                                inpRef.current.email = e;
+                            }}
                             type="email"
                             placeholder="you@example.com"
                             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -84,9 +68,10 @@ function OptimizedWay() {
                             Password
                         </label>
                         <input
-                            value={formValues.password}
                             name="password"
-                            onChange={handleChange}
+                            ref={(e) => {
+                                inpRef.current.password = e;
+                            }}
                             type="password"
                             placeholder="••••••••"
                             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -100,9 +85,10 @@ function OptimizedWay() {
                             Mobile
                         </label>
                         <input
-                            value={formValues.mobile}
                             name="mobile"
-                            onChange={handleChange}
+                            ref={(e) => {
+                                inpRef.current.mobile = e;
+                            }}
                             type="number"
                             placeholder="123456789"
                             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -122,17 +108,8 @@ function OptimizedWay() {
                     </p>
                 </form>
             </div>
-
-            <div>
-                <div className="text-white text-2xl">Name</div>
-                {arr.map((elem, index) => (
-                    <h1 className="text-white" key={index}>
-                        {elem.name}
-                    </h1>
-                ))}
-            </div>
         </div>
     );
 }
 
-export default OptimizedWay;
+export default UseRef;

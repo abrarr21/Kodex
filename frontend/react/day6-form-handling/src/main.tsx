@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import OptimizedWay from "./OptimizedWay";
+import UseRef from "./UseRef";
 
-createRoot(document.getElementById("root")!).render(<OptimizedWay />);
+createRoot(document.getElementById("root")!).render(<UseRef />);
