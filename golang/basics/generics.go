@@ -57,7 +57,7 @@ func Reduce[T int | float64](s []T, initial T, f func(T, T) T) T {
 	return result
 }
 
-func main() {
+func main12() {
 	var intStack Stack[int]
 	intStack.Push(10)
 	intStack.Push(24)

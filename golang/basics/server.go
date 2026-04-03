@@ -208,7 +208,7 @@ func kookie(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "The session id is %s", kookie.Value)
 }
 
-func main() {
+func main21() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/home", home)
